@@ -22,10 +22,10 @@ An update of the original blog post and project files, [Calling Microsoft SQL Se
 ## Commands
 
 ```bash
-gradle clean
-gradle build
-gradle cleanTest test
-gradle run --warning-mode none
+./gradlew clean
+./gradlew build
+./gradlew cleanTest test
+./gradlew run --warning-mode none
 ```
 
 ## References
