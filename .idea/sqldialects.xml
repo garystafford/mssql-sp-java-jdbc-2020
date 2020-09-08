@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/CreateStoredProcedures/Create_uspGetAverageProductWeight.sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/CreateStoredProcedures/Create_uspGetAverageProductWeightOUT.sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/CreateStoredProcedures/Create_uspGetEmployeesByLastName.sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/CreateStoredProcedures/Create_uspGetProductsByColorAndSize.sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/SQLScripts/ClearCache.sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/SQLScripts/RestoreAdventureWorksBackUp.sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/SQLScripts/RunStoredProcedures.sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/../sql-server-samples/samples/databases/adventure-works/oltp-install-script/instawdb.sql" dialect="TSQL" />
+  </component>
+</project>
