@@ -24,7 +24,7 @@ An update of the original blog post and project files, [Calling Microsoft SQL Se
 ```bash
 gradle clean
 gradle build
-gradle test
+gradle cleanTest test
 gradle run --warning-mode none
 ```
 
