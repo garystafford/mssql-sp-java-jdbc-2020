@@ -19,10 +19,19 @@ AS
 BEGIN
     SET NOCOUNT ON;
 
-    SELECT ROUND(AVG([Weight]), 2) AS AverageWeight
-    FROM [Production].[Product]
-    WHERE [Weight] > 0
-      AND [WeightUnitMeasureCode] = 'LB'
+    WITH Weights_CTE(AverageWeight) AS
+             (
+                 SELECT [Weight] AS AverageWeight
+                 FROM [Production].[Product]
+                 WHERE [Weight] > 0
+                   AND [WeightUnitMeasureCode] = 'LB'
+                 UNION
+                 SELECT [Weight] * 0.00220462262185 AS AverageWeight
+                 FROM [Production].[Product]
+                 WHERE [Weight] > 0
+                   AND [WeightUnitMeasureCode] = 'G')
+    SELECT ROUND(AVG([AverageWeight]), 2)
+    FROM [Weights_CTE];
 END
 
 GO

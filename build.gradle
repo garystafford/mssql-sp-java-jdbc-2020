@@ -1,4 +1,8 @@
-apply plugin: 'application'
+plugins {
+    id 'application'
+    id 'idea'
+    id 'java'
+}
 
 mainClassName = 'com.article.examples.RunExamples'
 
@@ -6,11 +10,14 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 group 'com.article'
-version '1.0-SNAPSHOT'
+def major = '1'
+def minor = '0'
+def patch = System.env.BUILD_NUMBER ?: '0'
+def artifact_version = major + '.' + minor + '.' + patch
+version = artifact_version
 
 repositories {
     jcenter()
-    mavenCentral()
 }
 
 dependencies {

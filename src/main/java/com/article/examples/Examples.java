@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+
 /**
  * Examples of calls to SQL Server using JDBC
  *
@@ -18,7 +19,7 @@ public class Examples {
     private static final SqlConnection connection = new SqlConnection();
 
     /**
-     * Statement example, no parameters, db returns integer
+     * Statement example, no parameters, returns Integer
      *
      * @return Average weight of all products
      */
@@ -28,11 +29,20 @@ public class Examples {
         ResultSet rs = null;
 
         try {
-            String sql = "SELECT ROUND(AVG([Weight]), 2)";
-            sql += " FROM Production.Product";
-            sql += " WHERE ([Weight] > 0)";
-            sql += " AND (WeightUnitMeasureCode = 'LB')";
             stmt = connection.getConnection().createStatement();
+            String sql = "WITH Weights_CTE(AverageWeight) AS" +
+                    "(" +
+                    "    SELECT [Weight] AS AverageWeight" +
+                    "    FROM [Production].[Product]" +
+                    "    WHERE [Weight] > 0" +
+                    "        AND [WeightUnitMeasureCode] = 'LB'" +
+                    "    UNION" +
+                    "    SELECT [Weight] * 0.00220462262185 AS AverageWeight" +
+                    "    FROM [Production].[Product]" +
+                    "    WHERE [Weight] > 0" +
+                    "        AND [WeightUnitMeasureCode] = 'G')" +
+                    "SELECT ROUND(AVG([AverageWeight]), 2) AS [averageWeight]" +
+                    "FROM [Weights_CTE];";
             rs = stmt.executeQuery(sql);
             if (rs.next()) {
                 averageWeight = rs.getDouble(1);
@@ -62,7 +72,7 @@ public class Examples {
     }
 
     /**
-     * PreparedStatement example, no parameters, db returns integer
+     * PreparedStatement example, no parameters, returns Integer
      *
      * @return Average weight of all products
      */
@@ -72,10 +82,19 @@ public class Examples {
         ResultSet rs = null;
 
         try {
-            String sql = "SELECT ROUND(AVG([Weight]), 2) AS averageWeight";
-            sql += " FROM Production.Product";
-            sql += " WHERE ([Weight] > 0)";
-            sql += " AND (WeightUnitMeasureCode = 'LB')";
+            String sql = "WITH Weights_CTE(averageWeight) AS" +
+                    "(" +
+                    "    SELECT [Weight] AS AverageWeight" +
+                    "    FROM [Production].[Product]" +
+                    "    WHERE [Weight] > 0" +
+                    "        AND [WeightUnitMeasureCode] = 'LB'" +
+                    "    UNION" +
+                    "    SELECT [Weight] * 0.00220462262185 AS AverageWeight" +
+                    "    FROM [Production].[Product]" +
+                    "    WHERE [Weight] > 0" +
+                    "        AND [WeightUnitMeasureCode] = 'G')" +
+                    "SELECT ROUND(AVG([AverageWeight]), 2) AS [averageWeight]" +
+                    "FROM [Weights_CTE];";
             pstmt = connection.getConnection().prepareStatement(sql);
             rs = pstmt.executeQuery();
             if (rs.next()) {
@@ -106,7 +125,7 @@ public class Examples {
     }
 
     /**
-     * CallableStatement, no parameters, db returns integer
+     * CallableStatement, no parameters, returns Integer
      *
      * @return Average weight of all products
      */
@@ -147,7 +166,7 @@ public class Examples {
     }
 
     /**
-     * CallableStatement example, (1) output parameter, db returns integer
+     * CallableStatement example, (1) output parameter, returns Integer
      *
      * @return Average weight of all products
      */
@@ -178,7 +197,7 @@ public class Examples {
     }
 
     /**
-     * CallableStatement example, (1) input parameter, db returns ResultSet
+     * CallableStatement example, (1) input parameter, returns ResultSet
      *
      * @param lastNameStartsWith
      * @return List of employee names
@@ -199,7 +218,7 @@ public class Examples {
             boolean results = cstmt.execute();
             int rowsAffected = 0;
 
-            // Protects against lack of SET NOCOUNT in stored prodedure
+            // Protects against lack of SET NOCOUNT in stored procedure
             while (results || rowsAffected != -1) {
                 if (results) {
                     rs = cstmt.getResultSet();
@@ -240,7 +259,7 @@ public class Examples {
     }
 
     /**
-     * CallableStatement example, (2) input parameters, db returns ResultSet
+     * CallableStatement example, (2) input parameters, returns ResultSet
      *
      * @param color
      * @param size
@@ -263,7 +282,7 @@ public class Examples {
             boolean results = cstmt.execute();
             int rowsAffected = 0;
 
-            // Protects against lack of SET NOCOUNT in stored prodedure
+            // Protects against lack of SET NOCOUNT in stored procedure
             while (results || rowsAffected != -1) {
                 if (results) {
                     rs = cstmt.getResultSet();

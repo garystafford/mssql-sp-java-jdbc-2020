@@ -9,11 +9,11 @@ DECLARE @average DECIMAL(8, 2);
 EXECUTE Production.uspGetAverageProductWeightOUT
     @averageWeight = @average OUTPUT;
 
-SELECT @average AS 'Average weight of products';
+SELECT @average AS 'Average weight of all products';
 
 -- uspGetEmployeesByLastName
 EXECUTE Person.uspGetEmployeesByLastName
-    @lastNameStartsWith = 'C';
+    @lastNameStartsWith = 'Sa';
 
 -- uspGetProductsByColorAndSize
 EXECUTE Production.uspGetProductsByColorAndSize

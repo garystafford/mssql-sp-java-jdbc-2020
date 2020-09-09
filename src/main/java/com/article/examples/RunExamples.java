@@ -21,49 +21,54 @@ public class RunExamples {
         System.out.println("SQL SERVER STATEMENT EXAMPLES");
         System.out.println("======================================");
 
-        // Statement example, no parameters, db returns integer
+        // Statement example, no parameters, returns Integer
         timer.setStartTime(System.nanoTime());
         double averageWeight = examples.getAverageProductWeightST();
         timer.setEndTime(System.nanoTime());
         System.out.println("GetAverageProductWeightST");
+        System.out.println("SQL Statement");
         System.out.println("Duration (ms): " + timer.getDuration());
         System.out.println("Average product weight (lb): " + averageWeight);
         System.out.println();
 
-        // PreparedStatement example, no parameters, db returns integer
+        // PreparedStatement example, no parameters, returns Integer
         timer.setStartTime(System.nanoTime());
         averageWeight = examples.getAverageProductWeightPS();
         timer.setEndTime(System.nanoTime());
         System.out.println("GetAverageProductWeightPS");
+        System.out.println("PreparedStatement, no parameters, returns Integer");
         System.out.println("Duration (ms): " + timer.getDuration());
         System.out.println("Average product weight (lb): " + averageWeight);
         System.out.println();
 
-        // CallableStatement, no parameters, db returns integer
+        // CallableStatement, no parameters, returns Integer
         timer.setStartTime(System.nanoTime());
         averageWeight = examples.getAverageProductWeightCS();
         timer.setEndTime(System.nanoTime());
         System.out.println("GetAverageProductWeightCS");
+        System.out.println("CallableStatement, no parameters, returns Integer");
         System.out.println("Duration (ms): " + timer.getDuration());
         System.out.println("Average product weight (lb): " + averageWeight);
         System.out.println();
 
-        // CallableStatement example, (1) output parameter, db returns integer
+        // CallableStatement example, (1) output parameter, returns Integer
         timer.setStartTime(System.nanoTime());
         averageWeight = examples.getAverageProductWeightOutCS();
         timer.setEndTime(System.nanoTime());
         System.out.println("GetAverageProductWeightOutCS");
+        System.out.println("CallableStatement, (1) output parameter, returns Integer");
         System.out.println("Duration (ms): " + timer.getDuration());
         System.out.println("Average product weight (lb): " + averageWeight);
         System.out.println();
 
-        // CallableStatement example, (1) input parameter, db returns ResultSet
+        // CallableStatement example, (1) input parameter, returns ResultSet
         timer.setStartTime(System.nanoTime());
         String lastNameStartsWith = "Sa";
         List<String> employeeFullName =
                 examples.getEmployeesByLastNameCS(lastNameStartsWith);
         timer.setEndTime(System.nanoTime());
         System.out.println("GetEmployeesByLastNameCS");
+        System.out.println("CallableStatement, (1) input parameter, returns ResultSet");
         System.out.println("Duration (ms): " + timer.getDuration());
         System.out.println("Last names starting with '"
                 + lastNameStartsWith + "': " + employeeFullName.size());
@@ -77,7 +82,7 @@ public class RunExamples {
         }
         System.out.println();
 
-        // CallableStatement example, (2) input parameters, db returns ResultSet
+        // CallableStatement example, (2) input parameters, returns ResultSet
         timer.setStartTime(System.nanoTime());
         String color = "Red";
         String size = "44";
@@ -85,6 +90,7 @@ public class RunExamples {
                 examples.getProductsByColorAndSizeCS(color, size);
         timer.setEndTime(System.nanoTime());
         System.out.println("GetProductsByColorAndSizeCS");
+        System.out.println("CallableStatement, (2) input parameter, returns ResultSet");
         System.out.println("Duration (ms): " + timer.getDuration());
         if (productList.size() > 0) {
             System.out.println("Products found (color: '" + color
