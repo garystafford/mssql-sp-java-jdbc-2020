@@ -24,10 +24,10 @@ BEGIN
 
     SELECT p.[ProductNumber], m.[Name] AS [Model], p.[Name] AS [Product], p.[Color], p.[Size]
     FROM [Production].[ProductModel] AS m
-             INNER JOIN
-         [Production].[Product] AS p ON m.[ProductModelID] = p.[ProductModelID]
+        INNER JOIN
+        [Production].[Product] AS p ON m.[ProductModelID] = p.[ProductModelID]
     WHERE (p.[Color] = @productColor)
-      AND (p.[Size] = @productSize)
+        AND (p.[Size] = @productSize)
     ORDER BY [ProductNumber], [Model], [Product]
 END
 

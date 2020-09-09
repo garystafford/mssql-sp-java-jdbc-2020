@@ -17,21 +17,24 @@ CREATE OR
 ALTER PROCEDURE [Production].[uspGetAverageProductWeight]
 AS
 BEGIN
-    SET NOCOUNT ON;
+  SET NOCOUNT ON;
 
-    WITH Weights_CTE(AverageWeight) AS
-             (
-                 SELECT [Weight] AS AverageWeight
-                 FROM [Production].[Product]
-                 WHERE [Weight] > 0
-                   AND [WeightUnitMeasureCode] = 'LB'
-                 UNION
-                 SELECT [Weight] * 0.00220462262185 AS AverageWeight
-                 FROM [Production].[Product]
-                 WHERE [Weight] > 0
-                   AND [WeightUnitMeasureCode] = 'G')
-    SELECT ROUND(AVG([AverageWeight]), 2)
-    FROM [Weights_CTE];
+  WITH
+    Weights_CTE(AverageWeight)
+    AS
+    (
+        SELECT [Weight] AS [AverageWeight]
+        FROM [Production].[Product]
+        WHERE [Weight] > 0
+          AND [WeightUnitMeasureCode] = 'LB'
+      UNION
+        SELECT [Weight] * 0.00220462262185 AS [AverageWeight]
+        FROM [Production].[Product]
+        WHERE [Weight] > 0
+          AND [WeightUnitMeasureCode] = 'G'
+    )
+  SELECT ROUND(AVG([AverageWeight]), 2) AS AverageWeight
+  FROM [Weights_CTE];
 END
 
 GO

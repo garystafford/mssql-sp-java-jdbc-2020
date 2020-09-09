@@ -16,16 +16,17 @@ GO
 -- =====================================================
 CREATE OR
 ALTER PROCEDURE [Person].[uspGetEmployeesByLastName]
-    @lastNameStartsWith VARCHAR(20) = 'A'
+  @lastNameStartsWith VARCHAR(20) = 'A'
 AS
 BEGIN
-    SET NOCOUNT ON;
+  SET NOCOUNT ON;
 
-    SELECT [Title], [FirstName], [MiddleName], [LastName], [Suffix]
-    FROM [Person].[Person]
-    WHERE ([PersonType] = 'EM')
-      AND ([LastName] LIKE @lastNameStartsWith + '%')
-    ORDER BY [LastName], [FirstName], [MiddleName], [Suffix], [Title]
+  SELECT p.[Title], p.[FirstName], p.[MiddleName], p.[LastName], p.[Suffix], e.[EmailAddress]
+  FROM [Person].[Person] AS p
+    LEFT JOIN EmailAddress AS e ON p.[BusinessEntityID] = e.[BusinessEntityID]
+  WHERE ([PersonType] = 'EM')
+    AND ([LastName] LIKE @lastNameStartsWith + '%')
+  ORDER BY [LastName], [FirstName], [MiddleName]
 END
 
 GO
