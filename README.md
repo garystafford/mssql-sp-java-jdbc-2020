@@ -4,7 +4,7 @@ Demonstrate the use of the JDBC to call stored procedures from a Microsoft SQL S
 
 * Demonstrate the differences between using static sql statements and stored procedures to return data
 * Demonstrate the use of three types of the JDBC statements to return data: Statement, PreparedStatement, and CallableStatement
-* Demonstrate how to call stored procedures with input and/or output parameters
+* Demonstrate how to call stored procedures with input and output parameters
 * Demonstrate how to return either single values, or a result set from a database using a stored procedure
 
 ## Major Changes to Project
