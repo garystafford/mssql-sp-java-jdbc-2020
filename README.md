@@ -4,12 +4,12 @@ Demonstrate the use of the JDBC to call stored procedures from a Microsoft SQL S
 
 ## Major Changes to Project
 
-1. __Microsoft SQL Server__: Was based on SQL Server 2008 R2 (10.50.1600.1), now SQL Server 2017 (14.00.3281.6.v1);
-2. __JDBC Driver__: Was built with Microsoft JDBC Driver 4.0 for SQL Server (JDBC 4.0 for JRE 6), now Microsoft JDBC Driver 8.4 for SQL Server (JDBC Driver 8.4 for JRE 11);
-3. __Database__: Was based on AdventureWorks2008R2, now AdventureWorks2017 (OLTP) full database;
-4. __Java__: Was built with Java SE Development Kit (JDK) 6, now Java SE Development Kit (JDK) 13;
-5. __IDE__: Was built with Netbeans 7.1.2, now IntelliJ IDEA 2020.2 (Ultimate Edition);
-6. __Build Automation Tool__: Was built with Apache Ant, now Gradle 6.6.1;
+1. __Microsoft SQL Server__: Was based on SQL Server 2008 R2 (10.50.1600.1), now SQL Server 2017 (14.00.3281.6.v1)
+2. __JDBC Driver__: Was built with Microsoft JDBC Driver 4.0 for SQL Server (JDBC 4.0 for JRE 6), now Microsoft JDBC Driver 8.4 for SQL Server (JDBC Driver 8.4 for JRE 11)
+3. __Database__: Was based on AdventureWorks2008R2, now AdventureWorks2017 (OLTP) full database
+4. __Java__: Was built with Java SE Development Kit (JDK) 6, now Java SE Development Kit (JDK) 13
+5. __IDE__: Was built with Netbeans 7.1.2, now IntelliJ IDEA 2020.2 (Ultimate Edition)
+6. __Build Automation Tool__: Was built with Apache Ant, now Gradle 6.6.1
 
 ## Scripts
 
@@ -28,6 +28,7 @@ Demonstrate the use of the JDBC to call stored procedures from a Microsoft SQL S
 
 ## Preview
 
+![preview](pic/run_output.png)
 ![preview](pic/run_output.png)
 
 ## References
