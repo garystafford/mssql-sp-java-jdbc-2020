@@ -15,19 +15,20 @@ GO
 --				based on color and size.
 -- =====================================================
 CREATE OR
-ALTER PROCEDURE [Production].[uspGetProductsByColorAndSize] @productColor VARCHAR(20),
-                                                            @productSize INTEGER
+ALTER PROCEDURE [Production].[uspGetProductsByColorAndSize]
+  @productColor VARCHAR(20),
+  @productSize INTEGER
 AS
 BEGIN
-    SET NOCOUNT ON;
+  SET NOCOUNT ON;
 
-    SELECT p.[ProductNumber], m.[Name] AS [Model], p.[Name] AS [Product], p.[Color], p.[Size]
-    FROM [Production].[ProductModel] AS m
-             INNER JOIN
-         [Production].[Product] AS p ON m.[ProductModelID] = p.[ProductModelID]
-    WHERE (p.[Color] = @productColor)
-      AND (p.[Size] = @productSize)
-    ORDER BY p.[ProductNumber], [Model], [Product]
+  SELECT p.[ProductNumber], m.[Name] AS [Model], p.[Name] AS [Product], p.[Color], p.[Size]
+  FROM [Production].[ProductModel] AS m
+    INNER JOIN
+    [Production].[Product] AS p ON m.[ProductModelID] = p.[ProductModelID]
+  WHERE (p.[Color] = @productColor)
+    AND (p.[Size] = @productSize)
+  ORDER BY p.[ProductNumber], [Model], [Product]
 END
 
 GO

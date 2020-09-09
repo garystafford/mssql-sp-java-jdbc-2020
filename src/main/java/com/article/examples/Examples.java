@@ -32,12 +32,12 @@ public class Examples {
             stmt = connection.getConnection().createStatement();
             String sql = "WITH Weights_CTE(AverageWeight) AS" +
                     "(" +
-                    "    SELECT [Weight] AS AverageWeight" +
+                    "    SELECT [Weight] AS [AverageWeight]" +
                     "    FROM [Production].[Product]" +
                     "    WHERE [Weight] > 0" +
                     "        AND [WeightUnitMeasureCode] = 'LB'" +
                     "    UNION" +
-                    "    SELECT [Weight] * 0.00220462262185 AS AverageWeight" +
+                    "    SELECT [Weight] * 0.00220462262185 AS [AverageWeight]" +
                     "    FROM [Production].[Product]" +
                     "    WHERE [Weight] > 0" +
                     "        AND [WeightUnitMeasureCode] = 'G')" +
@@ -84,12 +84,12 @@ public class Examples {
         try {
             String sql = "WITH Weights_CTE(averageWeight) AS" +
                     "(" +
-                    "    SELECT [Weight] AS AverageWeight" +
+                    "    SELECT [Weight] AS [AverageWeight]" +
                     "    FROM [Production].[Product]" +
                     "    WHERE [Weight] > 0" +
                     "        AND [WeightUnitMeasureCode] = 'LB'" +
                     "    UNION" +
-                    "    SELECT [Weight] * 0.00220462262185 AS AverageWeight" +
+                    "    SELECT [Weight] * 0.00220462262185 AS [AverageWeight]" +
                     "    FROM [Production].[Product]" +
                     "    WHERE [Weight] > 0" +
                     "        AND [WeightUnitMeasureCode] = 'G')" +
@@ -135,7 +135,7 @@ public class Examples {
         ResultSet rs = null;
         try {
             cstmt = connection.getConnection().prepareCall(
-                    "{call Production.uspGetAverageProductWeight}");
+                    "{call [Production].[uspGetAverageProductWeight]}");
             cstmt.execute();
             rs = cstmt.getResultSet();
             if (rs.next()) {
@@ -176,7 +176,7 @@ public class Examples {
 
         try {
             cstmt = connection.getConnection().prepareCall(
-                    "{call Production.uspGetAverageProductWeightOUT(?)}");
+                    "{call [Production].[uspGetAverageProductWeightOUT](?)}");
             cstmt.registerOutParameter("averageWeight", Types.DECIMAL);
             cstmt.execute();
             averageWeight = cstmt.getDouble("averageWeight");
@@ -210,7 +210,7 @@ public class Examples {
 
         try {
             cstmt = connection.getConnection().prepareCall(
-                    "{call HumanResources.uspGetEmployeesByLastName(?)}",
+                    "{call [HumanResources].[uspGetEmployeesByLastName](?)}",
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_READ_ONLY);
 
@@ -273,7 +273,7 @@ public class Examples {
 
         try {
             cstmt = connection.getConnection().prepareCall(
-                    "{call Production.uspGetProductsByColorAndSize(?, ?)}",
+                    "{call [Production].[uspGetProductsByColorAndSize](?, ?)}",
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_READ_ONLY);
 

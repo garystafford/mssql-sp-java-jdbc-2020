@@ -23,7 +23,7 @@ BEGIN
     Weights_CTE(AverageWeight)
     AS
     (
-        SELECT [Weight] AS [AverageWeight]
+              SELECT [Weight] AS [AverageWeight]
         FROM [Production].[Product]
         WHERE [Weight] > 0
           AND [WeightUnitMeasureCode] = 'LB'
@@ -33,7 +33,7 @@ BEGIN
         WHERE [Weight] > 0
           AND [WeightUnitMeasureCode] = 'G'
     )
-  SELECT ROUND(AVG([AverageWeight]), 2) AS AverageWeight
+  SELECT ROUND(AVG([AverageWeight]), 2)
   FROM [Weights_CTE];
 END
 
