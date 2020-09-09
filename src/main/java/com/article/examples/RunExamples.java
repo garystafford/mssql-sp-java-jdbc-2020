@@ -26,7 +26,7 @@ public class RunExamples {
         double averageWeight = examples.getAverageProductWeightST();
         timer.setEndTime(System.nanoTime());
         System.out.println("GetAverageProductWeightST");
-        System.out.println("SQL Statement");
+        System.out.println("Statement");
         System.out.println("Duration (ms): " + timer.getDuration());
         System.out.println("Average product weight (lb): " + averageWeight);
         System.out.println("---");
