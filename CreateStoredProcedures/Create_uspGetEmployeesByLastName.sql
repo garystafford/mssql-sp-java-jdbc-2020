@@ -15,7 +15,7 @@ GO
 --				whose last name is starts with value.
 -- =====================================================
 CREATE OR
-ALTER PROCEDURE [Person].[uspGetEmployeesByLastName]
+ALTER PROCEDURE [HumanResources].[uspGetEmployeesByLastName]
   @lastNameStartsWith VARCHAR(20) = 'A'
 AS
 BEGIN

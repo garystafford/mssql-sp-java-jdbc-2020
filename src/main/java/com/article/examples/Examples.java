@@ -210,7 +210,7 @@ public class Examples {
 
         try {
             cstmt = connection.getConnection().prepareCall(
-                    "{call Person.uspGetEmployeesByLastName(?)}",
+                    "{call HumanResources.uspGetEmployeesByLastName(?)}",
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_READ_ONLY);
 
