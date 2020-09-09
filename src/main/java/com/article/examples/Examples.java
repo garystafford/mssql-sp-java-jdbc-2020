@@ -41,7 +41,7 @@ public class Examples {
                     "    FROM [Production].[Product]" +
                     "    WHERE [Weight] > 0" +
                     "        AND [WeightUnitMeasureCode] = 'G')" +
-                    "SELECT ROUND(AVG([AverageWeight]), 2) AS [averageWeight]" +
+                    "SELECT ROUND(AVG([AverageWeight]), 2)" +
                     "FROM [Weights_CTE];";
             rs = stmt.executeQuery(sql);
             if (rs.next()) {

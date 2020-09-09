@@ -66,7 +66,7 @@ public class ExamplesTest {
     @Test
     public void testGetAverageProductWeightCS() throws Exception {
         System.out.println("getAverageProductWeightCS");
-        double expResult = 13.48;
+        double expResult = 12.43;
         double result = examples.getAverageProductWeightCS();
         System.out.println("averageWeight: " + result);
         Assert.assertEquals(expResult, result, .001);
