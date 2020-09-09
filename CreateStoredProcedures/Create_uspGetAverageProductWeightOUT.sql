@@ -15,28 +15,26 @@ GO
 --              Convert grams (G) to Pounds (LB).
 -- =====================================================
 CREATE OR
-ALTER PROCEDURE [Production].[uspGetAverageProductWeightOUT]
-  @averageWeight DECIMAL(8, 2) OUT
+ALTER PROCEDURE [Production].[uspGetAverageProductWeightOUT] @averageWeight DECIMAL(8, 2) OUT
 AS
 BEGIN
-  SET NOCOUNT ON;
+    SET NOCOUNT ON;
 
-  WITH
-    Weights_CTE(AverageWeight)
-    AS
-    (
-        SELECT [Weight] AS [AverageWeight]
-        FROM [Production].[Product]
-        WHERE [Weight] > 0
-          AND [WeightUnitMeasureCode] = 'LB'
-      UNION
-        SELECT [Weight] * 0.00220462262185 AS [AverageWeight]
-        FROM [Production].[Product]
-        WHERE [Weight] > 0
-          AND [WeightUnitMeasureCode] = 'G'
-    )
-  SELECT @averageWeight = ROUND(AVG([AverageWeight]), 2)
-  FROM [Weights_CTE];
+    WITH Weights_CTE(AverageWeight)
+             AS
+             (
+                 SELECT [Weight] AS [AverageWeight]
+                 FROM [Production].[Product]
+                 WHERE [Weight] > 0
+                   AND [WeightUnitMeasureCode] = 'LB'
+                 UNION
+                 SELECT [Weight] * 0.00220462262185 AS [AverageWeight]
+                 FROM [Production].[Product]
+                 WHERE [Weight] > 0
+                   AND [WeightUnitMeasureCode] = 'G'
+             )
+    SELECT @averageWeight = ROUND(AVG([AverageWeight]), 2)
+    FROM [Weights_CTE];
 END
 
 GO

@@ -23,7 +23,7 @@ BEGIN
     Weights_CTE(AverageWeight)
     AS
     (
-        SELECT [Weight] AS [AverageWeight]
+              SELECT [Weight] AS [AverageWeight]
         FROM [Production].[Product]
         WHERE [Weight] > 0
           AND [WeightUnitMeasureCode] = 'LB'
