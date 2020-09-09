@@ -34,7 +34,7 @@ Demonstrate the use of the JDBC to call stored procedures from a Microsoft SQL S
 
 ## Preview
 
-![preview](pic/output.png)
+![preview](pic/java_output.png)
 
 ## References
 
