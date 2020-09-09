@@ -2,6 +2,11 @@
 
 Demonstrate the use of the JDBC to call stored procedures from a Microsoft SQL Server database and return data to a Java-based console application. An update of the original blog post, [Calling Microsoft SQL Server Stored Procedures from a Java Application Using JDBC](https://programmaticponderings.com/2012/08/24/calling-sql-server-stored-procedures-with-java-using-jdbc/), and GitHub project files, [mssql-sp-java-jdbc](https://github.com/garystafford/mssql-sp-java-jdbc), published August 24, 2012.
 
+* Demonstrate the differences between using static sql statements and stored procedures to return data
+* Demonstrate the use of three types of the JDBC statements to return data: Statement, PreparedStatement, and CallableStatement
+* Demonstrate how to call stored procedures with input and/or output parameters
+* Demonstrate how to return either single values, or a result set from a database using a stored procedure
+
 ## Major Changes to Project
 
 1. __Microsoft SQL Server__: Was based on SQL Server 2008 R2 (10.50.1600.1), now SQL Server 2017 (14.00.3281.6.v1)
