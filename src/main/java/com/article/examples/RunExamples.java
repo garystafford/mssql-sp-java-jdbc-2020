@@ -25,40 +25,40 @@ public class RunExamples {
         timer.setStartTime(System.nanoTime());
         double averageWeight = examples.getAverageProductWeightST();
         timer.setEndTime(System.nanoTime());
-        System.out.println("GetAverageProductWeightST");
-        System.out.println("Statement, no parameters, returns Integer");
+        System.out.println("Method: GetAverageProductWeightST");
+        System.out.println("Description: Statement, no parameters, returns Integer");
         System.out.println("Duration (ms): " + timer.getDuration());
-        System.out.println("Average product weight (lb): " + averageWeight);
+        System.out.println("Results: Average product weight (lb): " + averageWeight);
         System.out.println("---");
 
         // PreparedStatement example, no parameters, returns Integer
         timer.setStartTime(System.nanoTime());
         averageWeight = examples.getAverageProductWeightPS();
         timer.setEndTime(System.nanoTime());
-        System.out.println("GetAverageProductWeightPS");
-        System.out.println("PreparedStatement, no parameters, returns Integer");
+        System.out.println("Method: GetAverageProductWeightPS");
+        System.out.println("Description: PreparedStatement, no parameters, returns Integer");
         System.out.println("Duration (ms): " + timer.getDuration());
-        System.out.println("Average product weight (lb): " + averageWeight);
+        System.out.println("Results: Average product weight (lb): " + averageWeight);
         System.out.println("---");
 
         // CallableStatement, no parameters, returns Integer
         timer.setStartTime(System.nanoTime());
         averageWeight = examples.getAverageProductWeightCS();
         timer.setEndTime(System.nanoTime());
-        System.out.println("GetAverageProductWeightCS");
-        System.out.println("CallableStatement, no parameters, returns Integer");
+        System.out.println("Method: GetAverageProductWeightCS");
+        System.out.println("Description: CallableStatement, no parameters, returns Integer");
         System.out.println("Duration (ms): " + timer.getDuration());
-        System.out.println("Average product weight (lb): " + averageWeight);
+        System.out.println("Results: Average product weight (lb): " + averageWeight);
         System.out.println("---");
 
         // CallableStatement example, (1) output parameter, returns Integer
         timer.setStartTime(System.nanoTime());
         averageWeight = examples.getAverageProductWeightOutCS();
         timer.setEndTime(System.nanoTime());
-        System.out.println("GetAverageProductWeightOutCS");
-        System.out.println("CallableStatement, (1) output parameter, returns Integer");
+        System.out.println("Method: GetAverageProductWeightOutCS");
+        System.out.println("Description: CallableStatement, (1) output parameter, returns Integer");
         System.out.println("Duration (ms): " + timer.getDuration());
-        System.out.println("Average product weight (lb): " + averageWeight);
+        System.out.println("Results: Average product weight (lb): " + averageWeight);
         System.out.println("---");
 
         // CallableStatement example, (1) input parameter, returns ResultSet
@@ -67,13 +67,13 @@ public class RunExamples {
         List<String> employeeFullName =
                 examples.getEmployeesByLastNameCS(lastNameStartsWith);
         timer.setEndTime(System.nanoTime());
-        System.out.println("GetEmployeesByLastNameCS");
-        System.out.println("CallableStatement, (1) input parameter, returns ResultSet");
+        System.out.println("Method: GetEmployeesByLastNameCS");
+        System.out.println("Description: CallableStatement, (1) input parameter, returns ResultSet");
         System.out.println("Duration (ms): " + timer.getDuration());
-        System.out.println("Last names starting with '"
+        System.out.println("Results: Last names starting with '"
                 + lastNameStartsWith + "': " + employeeFullName.size());
         if (employeeFullName.size() > 0) {
-            System.out.println("Last employee found: "
+            System.out.println("         Last employee found: "
                     + employeeFullName.get(employeeFullName.size() - 1));
         } else {
             System.out.println(
@@ -89,13 +89,13 @@ public class RunExamples {
         List<Product> productList =
                 examples.getProductsByColorAndSizeCS(color, size);
         timer.setEndTime(System.nanoTime());
-        System.out.println("GetProductsByColorAndSizeCS");
-        System.out.println("CallableStatement, (2) input parameter, returns ResultSet");
+        System.out.println("Method: GetProductsByColorAndSizeCS");
+        System.out.println("Description: CallableStatement, (2) input parameter, returns ResultSet");
         System.out.println("Duration (ms): " + timer.getDuration());
         if (productList.size() > 0) {
-            System.out.println("Products found (color: '" + color
+            System.out.println("Results: Products found (color: '" + color
                     + "', size: '" + size + "'): " + productList.size());
-            System.out.println("First product: "
+            System.out.println("         First product: "
                     + productList.get(0).getProduct()
                     + " (" + productList.get(0).getProductNumber() + ")");
         } else {
