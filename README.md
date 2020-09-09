@@ -2,7 +2,7 @@
 
 ## Demonstrate the use of the JDBC to call stored procedures from a Microsoft SQL Server database and return data to a Java-based console application.
 
-An update of the original blog post and project files, [Calling Microsoft SQL Server Stored Procedures from a Java Application Using JDBC](https://programmaticponderings.com/2012/08/24/calling-sql-server-stored-procedures-with-java-using-jdbc/), published August 24, 2012. It has been the most popular blog post and project I ever created in the lat eight years, based on the number of viewers.
+An update of the original blog post, [Calling Microsoft SQL Server Stored Procedures from a Java Application Using JDBC](https://programmaticponderings.com/2012/08/24/calling-sql-server-stored-procedures-with-java-using-jdbc/), and GitHub project files, [mssql-sp-java-jdbc](https://github.com/garystafford/mssql-sp-java-jdbc), published August 24, 2012.
 
 ## Major Changes to Project
 
