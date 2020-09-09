@@ -29,7 +29,7 @@ public class RunExamples {
         System.out.println("SQL Statement");
         System.out.println("Duration (ms): " + timer.getDuration());
         System.out.println("Average product weight (lb): " + averageWeight);
-        System.out.println();
+        System.out.println("---");
 
         // PreparedStatement example, no parameters, returns Integer
         timer.setStartTime(System.nanoTime());
@@ -39,7 +39,7 @@ public class RunExamples {
         System.out.println("PreparedStatement, no parameters, returns Integer");
         System.out.println("Duration (ms): " + timer.getDuration());
         System.out.println("Average product weight (lb): " + averageWeight);
-        System.out.println();
+        System.out.println("---");
 
         // CallableStatement, no parameters, returns Integer
         timer.setStartTime(System.nanoTime());
@@ -49,7 +49,7 @@ public class RunExamples {
         System.out.println("CallableStatement, no parameters, returns Integer");
         System.out.println("Duration (ms): " + timer.getDuration());
         System.out.println("Average product weight (lb): " + averageWeight);
-        System.out.println();
+        System.out.println("---");
 
         // CallableStatement example, (1) output parameter, returns Integer
         timer.setStartTime(System.nanoTime());
@@ -59,7 +59,7 @@ public class RunExamples {
         System.out.println("CallableStatement, (1) output parameter, returns Integer");
         System.out.println("Duration (ms): " + timer.getDuration());
         System.out.println("Average product weight (lb): " + averageWeight);
-        System.out.println();
+        System.out.println("---");
 
         // CallableStatement example, (1) input parameter, returns ResultSet
         timer.setStartTime(System.nanoTime());
@@ -80,7 +80,7 @@ public class RunExamples {
                     "No employees found with last name starting with '"
                             + lastNameStartsWith + "'");
         }
-        System.out.println();
+        System.out.println("---");
 
         // CallableStatement example, (2) input parameters, returns ResultSet
         timer.setStartTime(System.nanoTime());
@@ -102,7 +102,7 @@ public class RunExamples {
             System.out.println("No products found with color '" + color
                     + "' and size '" + size + "'");
         }
-        System.out.println();
+        System.out.println("---");
 
         examples.closeConnection();
     }
