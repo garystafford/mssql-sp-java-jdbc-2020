@@ -30,7 +30,7 @@ An update of the original blog post, [Calling Microsoft SQL Server Stored Proced
 
 ## Preview
 
-![preview](pic/screengrab.png)
+![preview](pic/output.png)
 
 ## References
 
