@@ -27,7 +27,7 @@ BEGIN
          [Production].[Product] AS p ON m.[ProductModelID] = p.[ProductModelID]
     WHERE (p.[Color] = @productColor)
       AND (p.[Size] = @productSize)
-    ORDER BY [ProductNumber], [Model], [Product]
+    ORDER BY p.[ProductNumber], [Model], [Product]
 END
 
 GO

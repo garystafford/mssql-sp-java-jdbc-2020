@@ -15,17 +15,20 @@ GO
 --				whose last name is starts with value.
 -- =====================================================
 CREATE OR
-ALTER PROCEDURE [Person].[uspGetEmployeesByLastName] @lastNameStartsWith VARCHAR(20) = 'A'
+ALTER PROCEDURE [Person].[uspGetEmployeesByLastName]
+  @lastNameStartsWith VARCHAR(20) = 'A'
 AS
 BEGIN
-    SET NOCOUNT ON;
+  SET NOCOUNT ON;
 
-    SELECT p.[Title], p.[FirstName], p.[MiddleName], p.[LastName], p.[Suffix], e.[EmailAddress]
-    FROM [Person].[Person] AS p
-             LEFT JOIN EmailAddress AS e ON p.[BusinessEntityID] = e.[BusinessEntityID]
-    WHERE ([PersonType] = 'EM')
-      AND ([LastName] LIKE @lastNameStartsWith + '%')
-    ORDER BY [LastName], [FirstName], [MiddleName]
+  SELECT p.[FirstName], p.[MiddleName], p.[LastName], p.[Suffix], e.[JobTitle], m.[EmailAddress]
+  FROM [HumanResources].[Employee] AS e
+    LEFT JOIN [Person].[Person] p ON e.[BusinessEntityID] = p.[BusinessEntityID]
+    LEFT JOIN [Person].[EmailAddress] m ON e.[BusinessEntityID] = m.[BusinessEntityID]
+  WHERE e.[CurrentFlag] = 1
+    AND p.[PersonType] = 'EM'
+    AND p.[LastName] LIKE @lastNameStartsWith + '%'
+  ORDER BY p.[LastName], p.[FirstName], p.[MiddleName]
 END
 
 GO
