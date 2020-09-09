@@ -48,6 +48,7 @@ public class RunExamples {
         System.out.println("Method: GetAverageProductWeightCS");
         System.out.println("Description: CallableStatement, no parameters, returns Integer");
         System.out.printf("Duration (ms): %d%n", timer.getDuration());
+        System.out.printf("Results: Average product weight (lb): %s%n", averageWeight);
         System.out.println("---");
 
         // CallableStatement example, (1) output parameter, returns Integer
