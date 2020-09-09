@@ -28,6 +28,10 @@ An update of the original blog post, [Calling Microsoft SQL Server Stored Proced
 ./gradlew run --warning-mode none
 ```
 
+## Preview
+
+![preview](pic/screengrab.png)
+
 ## References
 
 * [Amazon RDS for SQL Server](https://aws.amazon.com/rds/sqlserver/)
