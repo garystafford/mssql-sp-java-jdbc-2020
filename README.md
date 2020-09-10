@@ -28,8 +28,6 @@ Demonstrate the use of the JDBC to call stored procedures from a Microsoft SQL S
 Currently, using Gradle 6.6.1.
 
 ```bash
-./gradlew clean
-./gradlew build
 ./gradlew cleanTest test --warning-mode none
 ./gradlew run --warning-mode none
 ```
